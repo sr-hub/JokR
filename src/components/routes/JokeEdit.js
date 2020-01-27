@@ -7,7 +7,7 @@ import JokeForm from '../shared/JokeForm'
 import Layout from '../shared/Layout'
 
 const JokeEdit = props => {
-  const [joke, setJoke] = useState({ title: '', director: '', year: '' })
+  const [joke, setJoke] = useState({ title: '', text: '' })
   const [updated, setUpdated] = useState(false)
 
   useEffect(() => {
