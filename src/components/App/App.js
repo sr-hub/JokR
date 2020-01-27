@@ -65,7 +65,7 @@ const App = props => {
         <AuthenticatedRoute user={user} path='/create-joke' render={() => (
           <JokeCreate alert={alert} user={user} />
         )} />
-        <AuthenticatedRoute user={user} path='/jokes/:id/edit' render={({ match }) => (
+        <AuthenticatedRoute user={user} exact path='/jokes/:id/edit' render={({ match }) => (
           <JokeEdit match={match} alert={alert} user={user} />
         )} />
         <Route path='/sign-up' render={() => (
