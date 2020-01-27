@@ -14,24 +14,6 @@ import SignIn from '../SignIn/SignIn'
 import SignOut from '../SignOut/SignOut'
 import ChangePassword from '../ChangePassword/ChangePassword'
 
-// class App extends Component {
-//   constructor () {
-//     super()
-//
-//     state = {
-//       user: null,
-//       alerts: []
-//     }
-//   }
-//
-//   setUser = user => setState({ user })
-//
-//   clearUser = () => setState({ user: null })
-//
-//   alert = ({ heading, message, variant }) => {
-//     setState({ alerts: [...state.alerts, { heading, message, variant }] })
-//   }
-
 const App = props => {
   const [user, setUser] = useState(null)
   const [alerts, setAlerts] = useState([])

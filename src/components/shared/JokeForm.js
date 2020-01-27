@@ -5,26 +5,17 @@ const JokeForm = ({ joke, handleSubmit, handleChange, cancelPath }) => (
   <form onSubmit={handleSubmit}>
     <label>Title</label>
     <input
-      placeholder="A Wonderful Film"
+      placeholder="Bar Joke"
       value={joke.title}
       name="title"
       onChange={handleChange}
     />
 
-    <label>Director</label>
+    <label>Text</label>
     <input
-      placeholder="John Doe"
-      value={joke.director}
+      placeholder="Two ducks walk into a bar..."
+      value={joke.text}
       name="director"
-      onChange={handleChange}
-    />
-
-    <label>Date Released</label>
-    <input
-      type="date"
-      placeholder="YYYY-MM-DD"
-      value={joke.year}
-      name="year"
       onChange={handleChange}
     />
 
