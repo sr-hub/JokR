@@ -15,7 +15,7 @@ const JokeForm = ({ joke, handleSubmit, handleChange, cancelPath }) => (
     <input
       placeholder="Two ducks walk into a bar..."
       value={joke.text}
-      name="director"
+      name="text"
       onChange={handleChange}
     />
 

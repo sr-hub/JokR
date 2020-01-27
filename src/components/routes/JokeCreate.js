@@ -7,7 +7,7 @@ import JokeForm from '../shared/JokeForm'
 import Layout from '../shared/Layout'
 
 const JokeCreate = props => {
-  const [joke, setJoke] = useState({ title: '', text: '', owner: '' })
+  const [joke, setJoke] = useState({ title: '', text: '' })
   const [createdJokeId, setCreatedJokeId] = useState(null)
 
   const handleChange = event => {
