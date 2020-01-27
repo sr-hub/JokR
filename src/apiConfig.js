@@ -1,7 +1,7 @@
 let apiUrl
 const apiUrls = {
-  production: 'https://sei-movie-api.herokuapp.com',
-  development: 'https://sei-movie-api.herokuapp.com'
+  production: 'https://jokr-app.herokuapp.com/',
+  development: 'https://jokr-app.herokuapp.com/'
 }
 
 if (window.location.hostname === 'localhost') {
