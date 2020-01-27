@@ -37,8 +37,8 @@ const Joke = props => {
   return (
     <Layout>
       <h4>{joke.title}</h4>
-      <p>Date relased: {joke.year}</p>
-      <p>Directed by: {joke.director}</p>
+      <p>{joke.text}</p>
+      <p>written by: {joke.owner}</p>
       <button onClick={destroy}>Delete Joke</button>
       <Link to={`/jokes/${props.match.params.id}/edit`}>
         <button>Edit</button>
