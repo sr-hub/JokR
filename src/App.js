@@ -1,20 +1,20 @@
 import React from 'react'
 import { Route, withRouter } from 'react-router-dom'
 
-import Movies from './components/routes/Movies'
-import Movie from './components/routes/Movie'
-import MovieEdit from './components/routes/MovieEdit'
-import MovieCreate from './components/routes/MovieCreate'
+import Jokes from './components/routes/Jokes'
+import Joke from './components/routes/Joke'
+import JokeEdit from './components/routes/JokeEdit'
+import JokeCreate from './components/routes/JokeCreate'
 import Home from './components/routes/Home'
 
 const App = props => (
   <React.Fragment>
     <h3>{props.location.state ? props.location.state.msg : null}</h3>
     <Route exact path='/' component={Home} />
-    <Route exact path='/movies' component={Movies} />
-    <Route exact path='/create-movie' component={MovieCreate} />
-    <Route exact path='/movies/:id' component={Movie} />
-    <Route exact path='/movies/:id/edit' component={MovieEdit} />
+    <Route exact path='/jokes' component={Jokes} />
+    <Route exact path='/create-joke' component={JokeCreate} />
+    <Route exact path='/jokes/:id' component={Joke} />
+    <Route exact path='/jokes/:id/edit' component={JokeEdit} />
   </React.Fragment>
 )
 
