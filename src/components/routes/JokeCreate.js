@@ -7,7 +7,7 @@ import JokeForm from '../shared/JokeForm'
 import Layout from '../shared/Layout'
 
 const JokeCreate = props => {
-  const [joke, setJoke] = useState({ title: '', director: '', year: '' })
+  const [joke, setJoke] = useState({ title: '', text: '', owner: '' })
   const [createdJokeId, setCreatedJokeId] = useState(null)
 
   const handleChange = event => {
@@ -23,7 +23,7 @@ const JokeCreate = props => {
     event.preventDefault()
 
     axios({
-      url: `${apiUrl}/jokes`,
+      url: `${apiUrl}/jokes/create-joke`,
       method: 'POST',
       data: { joke }
     })
