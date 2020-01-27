@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import { Route, withRouter } from 'react-router-dom'
 
-import Jokes from '../components/routes/Jokes'
-import Joke from '../components/routes/Joke'
-import JokeEdit from '../components/routes/JokeEdit'
-import JokeCreate from '../components/routes/JokeCreate'
-import Home from '../components/routes/Home'
+import Jokes from '../routes/Jokes'
+import Joke from '../routes/Joke'
+import JokeEdit from '../routes/JokeEdit'
+import JokeCreate from '../routes/JokeCreate'
+import Home from '../routes/Home'
 import AuthenticatedRoute from '../AuthenticatedRoute/AuthenticatedRoute'
 import AutoDismissAlert from '../AutoDismissAlert/AutoDismissAlert'
 import Header from '../Header/Header'
@@ -34,12 +34,12 @@ import ChangePassword from '../ChangePassword/ChangePassword'
 
 const App = props => {
   const [user, setUser] = useState(null)
-  const [alert, setAlert] = useState([])
+  const [alerts, setAlerts] = useState([])
 
   const clearUser = () => setUser(null)
 
-  const alerts = ({ heading, message, variant }) => {
-    setAlert({ alerts: [...alerts, { heading, message, variant }] })
+  const alert = ({ heading, message, variant }) => {
+    setAlerts([...alerts, { heading, message, variant }])
   }
 
   return (
