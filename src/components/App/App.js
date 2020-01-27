@@ -56,7 +56,7 @@ const App = props => {
       <main className="container">
         <h3>{props.location.state ? props.location.state.msg : null}</h3>
         <Route exact path='/' component={Home} />
-        <Route exact path='/' render={() => (
+        <Route exact path='/jokes' render={() => (
           <Jokes/>
         )} />
         <Route exact path='/jokes/:id' render={({ match }) => (

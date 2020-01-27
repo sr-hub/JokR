@@ -1,7 +1,7 @@
 let apiUrl
 const apiUrls = {
-  production: 'https://jokr-app.herokuapp.com/',
-  development: 'https://jokr-app.herokuapp.com/'
+  production: 'https://jokr-app.herokuapp.com',
+  development: 'http://localhost:4741'
 }
 
 if (window.location.hostname === 'localhost') {

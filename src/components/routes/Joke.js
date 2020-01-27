@@ -43,7 +43,7 @@ const Joke = props => {
       <Link to={`/jokes/${props.match.params.id}/edit`}>
         <button>Edit</button>
       </Link>
-      <Link to="/jokes">Back to all jokes</Link>
+      <Link to="/jokes">Back to all Jokes</Link>
     </Layout>
   )
 }
