@@ -3,42 +3,42 @@ import { Redirect } from 'react-router-dom'
 import axios from 'axios'
 
 import apiUrl from '../../apiConfig'
-import MovieForm from '../shared/MovieForm'
+import JokeForm from '../shared/JokeForm'
 import Layout from '../shared/Layout'
 
-const MovieCreate = props => {
-  const [movie, setMovie] = useState({ title: '', director: '', year: '' })
-  const [createdMovieId, setCreatedMovieId] = useState(null)
+const JokeCreate = props => {
+  const [joke, setJoke] = useState({ title: '', director: '', year: '' })
+  const [createdJokeId, setCreatedJokeId] = useState(null)
 
   const handleChange = event => {
     event.persist()
     // const updatedField = { [event.target.name]: event.target.value }
     //
-    // const editedMovie = Object.assign(movie, updatedField)
+    // const editedMovie = Object.assign(joke, updatedField)
 
-    setMovie({ ...movie, [event.target.name]: [event.target.value] })
+    setJoke({ ...joke, [event.target.name]: [event.target.value] })
   }
 
   const handleSubmit = event => {
     event.preventDefault()
 
     axios({
-      url: `${apiUrl}/movies`,
+      url: `${apiUrl}/jokes`,
       method: 'POST',
-      data: { movie }
+      data: { joke }
     })
-      .then(res => setCreatedMovieId(res.data.movie.id))
+      .then(res => setCreatedJokeId(res.data.joke.id))
       .catch(console.error)
   }
 
-  if (createdMovieId) {
-    return <Redirect to={`/movies/${createdMovieId}`} />
+  if (createdJokeId) {
+    return <Redirect to={`/jokes/${createdJokeId}`} />
   }
 
   return (
     <Layout>
-      <MovieForm
-        movie={movie}
+      <JokeForm
+        joke={joke}
         handleChange={handleChange}
         handleSubmit={handleSubmit}
         cancelPath="/"
@@ -46,4 +46,4 @@ const MovieCreate = props => {
     </Layout>
   )
 }
-export default MovieCreate
+export default JokeCreate

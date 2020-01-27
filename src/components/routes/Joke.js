@@ -5,47 +5,47 @@ import axios from 'axios'
 import apiUrl from '../../apiConfig'
 import Layout from '../shared/Layout'
 
-const Movie = props => {
-  const [movie, setMovie] = useState(null)
+const Joke = props => {
+  const [joke, setJoke] = useState(null)
   const [deleted, setDeleted] = useState(false)
 
   useEffect(() => {
-    axios(`${apiUrl}/movies/${props.match.params.id}`)
-      .then(res => setMovie(res.data.movie))
+    axios(`${apiUrl}/jokes/${props.match.params.id}`)
+      .then(res => setJoke(res.data.joke))
       .catch(console.error)
   }, [])
 
   const destroy = () => {
     axios({
-      url: `${apiUrl}/movies/${props.match.params.id}`,
+      url: `${apiUrl}/jokes/${props.match.params.id}`,
       method: 'DELETE'
     })
       .then(() => setDeleted(true))
       .catch(console.error)
   }
 
-  if (!movie) {
+  if (!joke) {
     return <p>Loading...</p>
   }
 
   if (deleted) {
     return <Redirect to={
-      { pathname: '/', state: { msg: 'Movie successfully deleted!' } }
+      { pathname: '/', state: { msg: 'Joke successfully deleted!' } }
     } />
   }
 
   return (
     <Layout>
-      <h4>{movie.title}</h4>
-      <p>Date relased: {movie.year}</p>
-      <p>Directed by: {movie.director}</p>
-      <button onClick={destroy}>Delete Movie</button>
-      <Link to={`/movies/${props.match.params.id}/edit`}>
+      <h4>{joke.title}</h4>
+      <p>Date relased: {joke.year}</p>
+      <p>Directed by: {joke.director}</p>
+      <button onClick={destroy}>Delete Joke</button>
+      <Link to={`/jokes/${props.match.params.id}/edit`}>
         <button>Edit</button>
       </Link>
-      <Link to="/movies">Back to all movies</Link>
+      <Link to="/jokes">Back to all jokes</Link>
     </Layout>
   )
 }
 
-export default Movie
+export default Joke

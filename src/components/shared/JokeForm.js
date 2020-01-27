@@ -1,12 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const MovieForm = ({ movie, handleSubmit, handleChange, cancelPath }) => (
+const JokeForm = ({ joke, handleSubmit, handleChange, cancelPath }) => (
   <form onSubmit={handleSubmit}>
     <label>Title</label>
     <input
       placeholder="A Wonderful Film"
-      value={movie.title}
+      value={joke.title}
       name="title"
       onChange={handleChange}
     />
@@ -14,7 +14,7 @@ const MovieForm = ({ movie, handleSubmit, handleChange, cancelPath }) => (
     <label>Director</label>
     <input
       placeholder="John Doe"
-      value={movie.director}
+      value={joke.director}
       name="director"
       onChange={handleChange}
     />
@@ -23,7 +23,7 @@ const MovieForm = ({ movie, handleSubmit, handleChange, cancelPath }) => (
     <input
       type="date"
       placeholder="YYYY-MM-DD"
-      value={movie.year}
+      value={joke.year}
       name="year"
       onChange={handleChange}
     />
@@ -35,4 +35,4 @@ const MovieForm = ({ movie, handleSubmit, handleChange, cancelPath }) => (
   </form>
 )
 
-export default MovieForm
+export default JokeForm

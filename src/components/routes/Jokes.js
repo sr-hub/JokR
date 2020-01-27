@@ -5,28 +5,28 @@ import axios from 'axios'
 import apiUrl from '../../apiConfig'
 import Layout from '../shared/Layout'
 
-const Movies = props => {
-  const [movies, setMovies] = useState([])
+const Jokes = props => {
+  const [jokes, setJokes] = useState([])
 
   useEffect(() => {
-    axios(`${apiUrl}/movies`)
-      .then(res => setMovies(res.data.movies))
+    axios(`${apiUrl}/jokes`)
+      .then(res => setJokes(res.data.jokes))
       .catch(console.error)
   }, [])
 
-  const movieArr = movies.map(movie => (
-    <li key={movie.id}>
-      <Link to={`/movies/${movie.id}`}>{movie.title}</Link>
+  const jokeArr = jokes.map(joke => (
+    <li key={joke.id}>
+      <Link to={`/jokes/${joke.id}`}>{joke.title}</Link>
     </li>
   ))
 
   return (
     <Layout>
-      <h4>Movies</h4>
+      <h4>Jokes</h4>
       <ul>
-        {movieArr}
+        {jokeArr}
       </ul>
     </Layout>
   )
 }
-export default Movies
+export default Jokes

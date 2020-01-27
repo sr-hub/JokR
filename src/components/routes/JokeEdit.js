@@ -3,50 +3,50 @@ import { Redirect } from 'react-router-dom'
 import axios from 'axios'
 
 import apiUrl from '../../apiConfig'
-import MovieForm from '../shared/MovieForm'
+import JokeForm from '../shared/JokeForm'
 import Layout from '../shared/Layout'
 
-const MovieEdit = props => {
-  const [movie, setMovie] = useState({ title: '', director: '', year: '' })
+const JokeEdit = props => {
+  const [joke, setJoke] = useState({ title: '', director: '', year: '' })
   const [updated, setUpdated] = useState(false)
 
   useEffect(() => {
-    axios(`${apiUrl}/movies/${props.match.params.id}`)
-      .then(res => setMovie(res.data.movie))
+    axios(`${apiUrl}/jokes/${props.match.params.id}`)
+      .then(res => setJoke(res.data.joke))
       .catch(console.error)
   }, [])
 
   const handleChange = event => {
     event.persist()
-    setMovie({ ...movie, [event.target.name]: event.target.value })
+    setJoke({ ...joke, [event.target.name]: event.target.value })
   }
 
   const handleSubmit = event => {
     event.preventDefault()
 
     axios({
-      url: `${apiUrl}/movies/${props.match.params.id}`,
+      url: `${apiUrl}/jokes/${props.match.params.id}`,
       method: 'PATCH',
-      data: { movie }
+      data: { joke }
     })
       .then(() => setUpdated(true))
       .catch(console.error)
   }
 
   if (updated) {
-    return <Redirect to={`/movies/${props.match.params.id}`} />
+    return <Redirect to={`/jokes/${props.match.params.id}`} />
   }
 
   return (
     <Layout>
-      <MovieForm
-        movie={movie}
+      <JokeForm
+        joke={joke}
         handleChange={handleChange}
         handleSubmit={handleSubmit}
-        cancelPath={`/movies/${props.match.params.id}`}
+        cancelPath={`/jokes/${props.match.params.id}`}
       />
     </Layout>
   )
 }
 
-export default MovieEdit
+export default JokeEdit

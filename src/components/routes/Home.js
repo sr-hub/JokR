@@ -3,7 +3,7 @@ import Layout from '../shared/Layout'
 
 const Home = () => (
   <Layout>
-    <h4>Welcome to our movie app!</h4>
+    <h4>Welcome to JokR!</h4>
   </Layout>
 )
 
