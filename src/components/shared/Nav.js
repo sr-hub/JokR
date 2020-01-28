@@ -1,11 +1,15 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
-const Nav = () => (
+const AuthNav = (
+  <NavLink to='/create-joke'>Create Jokes</NavLink>
+)
+
+const Nav = (props) => (
   <nav>
     <NavLink to='/'>Home</NavLink>
     <NavLink to='/jokes'>Jokes</NavLink>
-    <NavLink to='/create-joke'>Create Jokes</NavLink>
+    {props.user ? AuthNav : ''}
   </nav>
 )
 

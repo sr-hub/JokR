@@ -1,15 +1,14 @@
 import React from 'react'
 
 import Nav from './Nav'
+// import AuthNav from './AuthNav'
 import Footer from './Footer'
 
-const Layout = props => (
+const Layout = (props) => (
   <div>
     <h1> JokR </h1>
-    <Nav />
-
+    <Nav user={props.user}/>
     {props.children}
-
     <Footer />
   </div>
 )

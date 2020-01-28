@@ -48,8 +48,6 @@ const Joke = props => {
     </Fragment>
   )
 
-  console.log(props)
-
   return (
     <Layout>
       <h4>{joke.title}</h4>

@@ -9,6 +9,7 @@ import Home from '../routes/Home'
 import AuthenticatedRoute from '../AuthenticatedRoute/AuthenticatedRoute'
 import AutoDismissAlert from '../AutoDismissAlert/AutoDismissAlert'
 import Header from '../Header/Header'
+// import Nav from '../shared/Nav'
 import SignUp from '../SignUp/SignUp'
 import SignIn from '../SignIn/SignIn'
 import SignOut from '../SignOut/SignOut'
@@ -37,15 +38,17 @@ const App = props => {
       ))}
       <main className="container">
         <h3>{props.location.state ? props.location.state.msg : null}</h3>
-        <Route exact path='/' component={Home} />
+        <Route exact path='/' user={user} render={({ match }) => (
+          <Home user={user} match={match}/>
+        )} />
         <Route exact path='/jokes' render={() => (
           <Jokes/>
         )} />
         <Route exact path='/jokes/:id' render={({ match }) => (
           <Joke user={user} match={match}/>
         )} />
-        <AuthenticatedRoute user={user} path='/create-joke' render={() => (
-          <JokeCreate alert={alert} user={user} />
+        <AuthenticatedRoute user={user} path='/create-joke' render={({ match }) => (
+          <JokeCreate match={match} alert={alert} user={user} />
         )} />
         <AuthenticatedRoute user={user} exact path='/jokes/:id/edit' render={({ match }) => (
           <JokeEdit match={match} alert={alert} user={user} />
