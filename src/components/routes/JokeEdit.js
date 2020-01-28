@@ -5,10 +5,12 @@ import axios from 'axios'
 import apiUrl from '../../apiConfig'
 import JokeForm from '../shared/JokeForm'
 import Layout from '../shared/Layout'
+import messages from '../AutoDismissAlert/messages'
 
 const JokeEdit = props => {
   const [joke, setJoke] = useState({ title: '', text: '' })
   const [updated, setUpdated] = useState(false)
+  const { alert } = props
 
   useEffect(() => {
     axios(`${apiUrl}/jokes/${props.match.params.id}`)
@@ -33,6 +35,19 @@ const JokeEdit = props => {
       data: { joke }
     })
       .then(() => setUpdated(true))
+      .then(() => alert({
+        heading: 'Successfully Created a Joke!',
+        message: messages.signInSuccess,
+        variant: 'success'
+      }))
+      .catch(error => {
+        alert({
+          heading: 'Joke Creation Failed!',
+          message: messages.signInFailure,
+          variant: 'danger'
+        })
+        throw (error)
+      })
       .catch(console.error)
   }
 
