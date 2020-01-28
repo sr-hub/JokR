@@ -30,7 +30,7 @@ const JokeCreate = props => {
       },
       data: { joke }
     })
-      .then(res => setCreatedJokeId(res.data.joke.id))
+      .then(res => setCreatedJokeId(res.data.joke._id))
       .catch(console.error)
   }
 
