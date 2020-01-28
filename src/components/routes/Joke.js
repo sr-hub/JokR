@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { Fragment, useState, useEffect } from 'react'
 import { Link, Redirect } from 'react-router-dom'
 import axios from 'axios'
 
@@ -8,6 +8,7 @@ import Layout from '../shared/Layout'
 const Joke = props => {
   const [joke, setJoke] = useState(null)
   const [deleted, setDeleted] = useState(false)
+  const { user } = props
 
   useEffect(() => {
     axios(`${apiUrl}/jokes/${props.match.params.id}`)
@@ -38,15 +39,21 @@ const Joke = props => {
     } />
   }
 
+  const authenticatedOptions = (
+    <Fragment>
+      <button onClick={destroy}>Delete Joke</button>
+      <Link to={`/jokes/${props.match.params.id}/edit`}>
+        <button>Edit</button>
+      </Link>
+    </Fragment>
+  )
+
   return (
     <Layout>
       <h4>{joke.title}</h4>
       <p>{joke.text}</p>
       <p>written by: {joke.owner}</p>
-      <button onClick={destroy}>Delete Joke</button>
-      <Link to={`/jokes/${props.match.params.id}/edit`}>
-        <button>Edit</button>
-      </Link>
+      { user ? authenticatedOptions : '' }
       <Link to="/jokes">Back to all Jokes</Link>
     </Layout>
   )
