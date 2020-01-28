@@ -36,13 +36,13 @@ const JokeEdit = props => {
     })
       .then(() => setUpdated(true))
       .then(() => alert({
-        heading: 'Successfully Created a Joke!',
+        heading: 'Successfully Edit a Joke!',
         message: messages.signInSuccess,
         variant: 'success'
       }))
       .catch(error => {
         alert({
-          heading: 'Joke Creation Failed!',
+          heading: 'Joke Edit Failed',
           message: messages.signInFailure,
           variant: 'danger'
         })
