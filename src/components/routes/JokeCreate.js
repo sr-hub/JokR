@@ -34,13 +34,13 @@ const JokeCreate = props => {
       .then(res => setCreatedJokeId(res.data.joke._id))
       .then(() => alert({
         heading: 'Successfully Created a Joke!',
-        message: messages.signInSuccess,
+        message: messages.jokeCreateSuccess,
         variant: 'success'
       }))
       .catch(error => {
         alert({
           heading: 'Joke Creation Failed!',
-          message: messages.signInFailure,
+          message: messages.jokeCreateFailure,
           variant: 'danger'
         })
         throw (error)
