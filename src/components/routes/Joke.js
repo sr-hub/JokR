@@ -48,12 +48,14 @@ const Joke = props => {
     </Fragment>
   )
 
+  console.log(props)
+
   return (
     <Layout>
       <h4>{joke.title}</h4>
       <p>{joke.text}</p>
       <p>written by: {joke.owner}</p>
-      { user ? authenticatedOptions : '' }
+      { user && user._id === joke.owner ? authenticatedOptions : '' }
       <Link to="/jokes">Back to all Jokes</Link>
     </Layout>
   )
