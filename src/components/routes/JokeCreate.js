@@ -16,7 +16,7 @@ const JokeCreate = props => {
     //
     // const editedMovie = Object.assign(joke, updatedField)
 
-    setJoke({ ...joke, [event.target.name]: [event.target.value] })
+    setJoke({ ...joke, [event.target.name]: event.target.value })
   }
 
   const handleSubmit = event => {
