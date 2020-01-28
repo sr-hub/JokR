@@ -25,7 +25,7 @@ const JokeEdit = props => {
     event.preventDefault()
 
     axios({
-      url: `${apiUrl}/jokes/${props.match.params.id}`,
+      url: `${apiUrl}/jokes/${props.match.params.id}/edit`,
       method: 'PATCH',
       headers: {
         'Authorization': `Bearer ${props.user.token}`
