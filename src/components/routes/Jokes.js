@@ -15,8 +15,8 @@ const Jokes = props => {
   }, [])
 
   const jokeArr = jokes.map(joke => (
-    <li key={joke.id}>
-      <Link to={`/jokes/${joke.id}`}>{joke.title}</Link>
+    <li key={joke._id}>
+      <Link to={`/jokes/${joke._id}`}>{joke.title}</Link>
     </li>
   ))
 
