@@ -18,7 +18,10 @@ const Joke = props => {
   const destroy = () => {
     axios({
       url: `${apiUrl}/jokes/${props.match.params.id}`,
-      method: 'DELETE'
+      method: 'DELETE',
+      headers: {
+        'Authorization': `Bearer ${this.props.user.token}`
+      }
     })
       .then(() => setDeleted(true))
       .catch(console.error)

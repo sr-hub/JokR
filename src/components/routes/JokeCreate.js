@@ -25,6 +25,9 @@ const JokeCreate = props => {
     axios({
       url: `${apiUrl}/jokes/create-joke`,
       method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${this.props.user.token}`
+      },
       data: { joke }
     })
       .then(res => setCreatedJokeId(res.data.joke.id))

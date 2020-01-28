@@ -27,6 +27,9 @@ const JokeEdit = props => {
     axios({
       url: `${apiUrl}/jokes/${props.match.params.id}`,
       method: 'PATCH',
+      headers: {
+        'Authorization': `Bearer ${this.props.user.token}`
+      },
       data: { joke }
     })
       .then(() => setUpdated(true))
