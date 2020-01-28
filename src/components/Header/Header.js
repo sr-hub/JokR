@@ -18,7 +18,7 @@ const unauthenticatedOptions = (
 
 const alwaysOptions = (
   <Fragment>
-    <Nav.Link href="/">Home</Nav.Link>
+    <Nav.Link href="https://sr-hub.github.io/JokR-front-end/#/">Home</Nav.Link>
   </Fragment>
 )
 
