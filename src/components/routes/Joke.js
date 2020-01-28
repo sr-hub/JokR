@@ -23,6 +23,7 @@ const Joke = props => {
         'Authorization': `Bearer ${props.user.token}`
       }
     })
+      .then(console.log(props))
       .then(() => setDeleted(true))
       .catch(console.error)
   }
