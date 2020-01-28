@@ -10,7 +10,7 @@ const Joke = props => {
   const [deleted, setDeleted] = useState(false)
 
   useEffect(() => {
-    axios(`${apiUrl}/jokes/${props.match.params._id}`)
+    axios(`${apiUrl}/jokes/${props.match.params.id}`)
       .then(res => setJoke(res.data.joke))
       .catch(console.error)
   }, [])
