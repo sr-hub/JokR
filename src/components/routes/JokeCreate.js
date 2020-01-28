@@ -26,7 +26,7 @@ const JokeCreate = props => {
       url: `${apiUrl}/jokes/create-joke`,
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${this.props.user.token}`
+        'Authorization': `Bearer ${props.user.token}`
       },
       data: { joke }
     })

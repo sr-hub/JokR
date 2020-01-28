@@ -28,7 +28,7 @@ const JokeEdit = props => {
       url: `${apiUrl}/jokes/${props.match.params.id}`,
       method: 'PATCH',
       headers: {
-        'Authorization': `Bearer ${this.props.user.token}`
+        'Authorization': `Bearer ${props.user.token}`
       },
       data: { joke }
     })

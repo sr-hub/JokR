@@ -20,7 +20,7 @@ const Joke = props => {
       url: `${apiUrl}/jokes/${props.match.params.id}`,
       method: 'DELETE',
       headers: {
-        'Authorization': `Bearer ${this.props.user.token}`
+        'Authorization': `Bearer ${props.user.token}`
       }
     })
       .then(() => setDeleted(true))
