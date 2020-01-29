@@ -5,6 +5,9 @@ import Jokes from '../routes/Jokes'
 import Joke from '../routes/Joke'
 import JokeEdit from '../routes/JokeEdit'
 import JokeCreate from '../routes/JokeCreate'
+import Favorite from '../routes/favorites/Favorite'
+import Favorites from '../routes/favorites/Favorites'
+import FavoriteCreate from '../routes/favorites/FavoriteCreate'
 import DadJokePage from '../routes/externalApi/DadJoke'
 import Home from '../routes/Home'
 import AuthenticatedRoute from '../AuthenticatedRoute/AuthenticatedRoute'
@@ -68,6 +71,15 @@ const App = props => {
         )} />
         <AuthenticatedRoute user={user} path='/change-password' render={() => (
           <ChangePassword alert={alert} user={user} />
+        )} />
+        <AuthenticatedRoute exact path='/favorites/:id' render={({ match }) => (
+          <Favorite user={user} match={match}/>
+        )} />
+        <AuthenticatedRoute user={user} path='/create-favorite' render={({ match }) => (
+          <FavoriteCreate match={match} alert={alert} user={user} />
+        )} />
+        <AuthenticatedRoute user={user} exact path='/favorites' render={({ match }) => (
+          <Favorites match={match} alert={alert} user={user} />
         )} />
       </main>
     </React.Fragment>
