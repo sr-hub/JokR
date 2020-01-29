@@ -45,8 +45,8 @@ const App = props => {
         <Route exact path='/jokes' render={() => (
           <Jokes/>
         )} />
-        <Route exact path='/get-jokes' render={() => (
-          <DadJoke/>
+        <Route exact path='/get-jokes' render={({ match }) => (
+          <DadJoke user={user} match={match}/>
         )} />
         <Route exact path='/jokes/:id' render={({ match }) => (
           <Joke user={user} match={match}/>

@@ -22,7 +22,7 @@ const DadJoke = props => {
       .catch(console.error)
   }, [])
 
-  // const destroy = () => {
+  // const getJoke = () => {
   //   axios({
   //     url: `${apiUrl}/jokes/${props.match.params.id}`,
   //     method: 'DELETE',
