@@ -36,7 +36,7 @@ const JokeEdit = props => {
     })
       .then(() => setUpdated(true))
       .then(() => alert({
-        heading: 'Successfully Edit a Joke!',
+        heading: 'Successfully Edited a Joke!',
         message: messages.jokeEditSuccess,
         variant: 'success'
       }))
