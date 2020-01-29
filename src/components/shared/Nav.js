@@ -10,7 +10,7 @@ const Nav = (props) => (
     <NavLink to='/'>Home</NavLink>
     <NavLink to='/jokes'>User Jokes</NavLink>
     <NavLink to='/get-jokes'>Get a Random Joke</NavLink>
-    <NavLink to='/my-jokes'>Saved Jokes</NavLink>
+    <NavLink to='/favorites'>Saved Jokes</NavLink>
     {props.user ? AuthNav : ''}
   </nav>
 )
