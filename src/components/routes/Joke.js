@@ -42,7 +42,7 @@ const Joke = props => {
 
   const saveFave = () => {
     axios({
-      url: `${apiUrl}/favorites/${props.match.params.id}`,
+      url: `${apiUrl}/favorites/create-favorite`,
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${props.user.token}`
