@@ -5,7 +5,7 @@ import Jokes from '../routes/Jokes'
 import Joke from '../routes/Joke'
 import JokeEdit from '../routes/JokeEdit'
 import JokeCreate from '../routes/JokeCreate'
-import DadJoke from '../routes/externalApi/DadJoke'
+import DadJokePage from '../routes/externalApi/DadJoke'
 import Home from '../routes/Home'
 import AuthenticatedRoute from '../AuthenticatedRoute/AuthenticatedRoute'
 import AutoDismissAlert from '../AutoDismissAlert/AutoDismissAlert'
@@ -46,7 +46,7 @@ const App = props => {
           <Jokes/>
         )} />
         <Route exact path='/get-jokes' render={({ match }) => (
-          <DadJoke user={user} match={match}/>
+          <DadJokePage user={user} match={match}/>
         )} />
         <Route exact path='/jokes/:id' render={({ match }) => (
           <Joke user={user} match={match}/>

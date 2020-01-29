@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 
 import Layout from '../../shared/Layout'
 import dadJokeApiUrl from '../../../dadJokeApiConfig'
 
-const DadJoke = props => {
+const DadJokePage = props => {
   const [joke, setJoke] = useState(null)
   // const [deleted, setDeleted] = useState(false)
   // const { user } = props
 
-  useEffect(() => {
+  const getJoke = () => {
     axios({
       url: `${dadJokeApiUrl}`,
       method: 'GET',
@@ -23,31 +23,7 @@ const DadJoke = props => {
         setJoke(res.data.joke)
       })
       .catch(console.error)
-  }, [])
-
-  // const getJoke = () => {
-  //   axios({
-  //   url: `${dadJokeApiUrl}`,
-  //   method: 'GET',
-  //   headers: {
-  //     'Accept': 'application/json'
-  //   }
-  // })
-  //     .then(console.log(props))
-  //     .then(() => setDeleted(true))
-  //     .catch(console.error)
-  // }
-
-  if (!joke) {
-    return <p>Loading...</p>
   }
-
-  // if (deleted) {
-  //   return <Redirect to={
-  //     { pathname: '/', state: { msg: 'Joke successfully deleted!' } }
-  //   } />
-  // }
-
   // const authenticatedOptions = (
   //   <Fragment>
   //     <button onClick={destroy}>Delete Joke</button>
@@ -57,14 +33,23 @@ const DadJoke = props => {
   //   </Fragment>
   // )
   // { user && user._id === joke.owner ? authenticatedOptions : '' }
-
-  return (
-    <Layout>
-      <h6>{joke}</h6>
-      <p>courtesy of: {joke.owner}</p>
-      <Link to="/jokes">Back to all Jokes</Link>
-    </Layout>
-  )
+  if (!joke) {
+    return (
+      <Layout>
+        <p> Click the Button to Get a Joke</p>
+        <button onClick = {getJoke}> Get a new Joke! </button>
+      </Layout>
+    )
+  } else {
+    return (
+      <Layout>
+        <h6> {joke} </h6>
+        <p> courtesy of: icanhazdadjoke.com </p>
+        <button onClick = {getJoke} > Get a new Joke! < /button>
+        <Link to = "/jokes" > Back to all Jokes < /Link>
+      </Layout>
+    )
+  }
 }
 
-export default DadJoke
+export default DadJokePage
