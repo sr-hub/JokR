@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { NavLink } from 'react-router-dom'
 
 const AuthNav = (
-  <NavLink to='/create-joke'>Create Jokes</NavLink>
+  <Fragment>
+    <NavLink to='/create-joke'>Create Jokes</NavLink>
+    <NavLink to='/favorites'>Saved Jokes</NavLink>
+  </Fragment>
 )
 
 const Nav = (props) => (
@@ -10,7 +13,6 @@ const Nav = (props) => (
     <NavLink to='/'>Home</NavLink>
     <NavLink to='/jokes'>User Jokes</NavLink>
     <NavLink to='/get-jokes'>Get a Random Joke</NavLink>
-    <NavLink to='/favorites'>Saved Jokes</NavLink>
     {props.user ? AuthNav : ''}
   </nav>
 )
