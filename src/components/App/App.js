@@ -45,14 +45,14 @@ const App = props => {
         <Route exact path='/' user={user} render={({ match }) => (
           <Home user={user} match={match}/>
         )} />
-        <Route exact path='/jokes' render={() => (
-          <Jokes/>
+        <Route exact path='/jokes' render={({ match }) => (
+          <Jokes user={user} match={match} alert={alert}/>
         )} />
         <Route exact path='/get-jokes' render={({ match }) => (
-          <DadJokePage user={user} match={match}/>
+          <DadJokePage user={user} match={match} alert={alert}/>
         )} />
         <Route exact path='/jokes/:id' render={({ match }) => (
-          <Joke user={user} match={match}/>
+          <Joke user={user} match={match} alert={alert}/>
         )} />
         <AuthenticatedRoute user={user} path='/create-joke' render={({ match }) => (
           <JokeCreate match={match} alert={alert} user={user} />

@@ -8,6 +8,7 @@ import Layout from '../shared/Layout'
 const Joke = props => {
   const [joke, setJoke] = useState(null)
   const [deleted, setDeleted] = useState(false)
+  const [saved, setSaved] = useState(false)
   const { user } = props
 
   useEffect(() => {
@@ -39,12 +40,39 @@ const Joke = props => {
     } />
   }
 
+  const saveFave = () => {
+    axios({
+      url: `${apiUrl}/favorites/${props.match.params.id}`,
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${props.user.token}`
+      }
+    })
+      .then(console.log('save fave props', props))
+      .then(() => setSaved(true))
+      .catch(console.error)
+  }
+
+  const unSaveFave = () => {
+    axios({
+      url: `${apiUrl}/favorites/${props.match.params.id}`,
+      method: 'DELETE',
+      headers: {
+        'Authorization': `Bearer ${props.user.token}`
+      }
+    })
+      .then(() => setSaved(false))
+      .catch(console.error)
+  }
+
   const authenticatedOptions = (
     <Fragment>
-      <button onClick={destroy}>Delete Joke</button>
+      { !saved ? <button onClick={saveFave}>Save as Favorite </button>
+        : <button onClick={unSaveFave}>Remove from Favorites </button> }
       <Link to={`/jokes/${props.match.params.id}/edit`}>
         <button>Edit</button>
       </Link>
+      <button onClick={destroy}>Delete Joke</button>
     </Fragment>
   )
 
