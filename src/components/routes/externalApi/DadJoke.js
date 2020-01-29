@@ -18,18 +18,21 @@ const DadJoke = props => {
         'Accept': 'application/json'
       }
     })
-      .then(res => setJoke(res.data.joke))
+      .then(res => {
+        console.log(res)
+        setJoke(res.data.joke)
+      })
       .catch(console.error)
   }, [])
 
   // const getJoke = () => {
   //   axios({
-  //     url: `${apiUrl}/jokes/${props.match.params.id}`,
-  //     method: 'DELETE',
-  //     headers: {
-  //       'Authorization': `Bearer ${props.user.token}`
-  //     }
-  //   })
+  //   url: `${dadJokeApiUrl}`,
+  //   method: 'GET',
+  //   headers: {
+  //     'Accept': 'application/json'
+  //   }
+  // })
   //     .then(console.log(props))
   //     .then(() => setDeleted(true))
   //     .catch(console.error)
@@ -57,7 +60,7 @@ const DadJoke = props => {
 
   return (
     <Layout>
-      <h6>{joke.joke}</h6>
+      <h6>{joke}</h6>
       <p>courtesy of: {joke.owner}</p>
       <Link to="/jokes">Back to all Jokes</Link>
     </Layout>
