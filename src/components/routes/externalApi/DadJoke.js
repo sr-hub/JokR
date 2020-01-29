@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 
-import Layout from '../shared/Layout'
-import dadJokeApiUrl from '../../../dadJokeApiUrl'
+import Layout from '../../shared/Layout'
+import dadJokeApiUrl from '../../../dadJokeApiConfig'
 
 const DadJoke = props => {
   const [joke, setJoke] = useState(null)
