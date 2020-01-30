@@ -17,17 +17,16 @@ const Favorites = props => {
       }
     })
       .then(res => {
-        console.log('res', res)
-        console.log('faves before setFaves', favorites)
         setFavorites(res.data.favorites)
-        console.log('faves after setFaves', favorites)
       })
       .catch(console.error)
   }, [])
 
+  console.log(favorites)
+
   const favoriteArr = favorites.map(favorite => (
     <li key={favorite._id}>
-      <Link to={`/favorites/${favorite._id}`}>{favorite.title}</Link>
+      <Link to={`/jokes/${favorite.joke._id}`}>{favorite.joke.title}</Link>
     </li>
   ))
 

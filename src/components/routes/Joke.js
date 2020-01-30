@@ -15,7 +15,7 @@ const Joke = props => {
     axios(`${apiUrl}/jokes/${props.match.params.id}`)
       .then(res => setJoke(res.data.joke))
       .catch(console.error)
-  }, [])
+  }, [saved])
 
   const destroy = () => {
     axios({
