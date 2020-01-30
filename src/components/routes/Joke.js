@@ -4,18 +4,22 @@ import axios from 'axios'
 
 import apiUrl from '../../apiConfig'
 import Layout from '../shared/Layout'
+import messages from '../AutoDismissAlert/messages'
 
 const Joke = props => {
   const [joke, setJoke] = useState(null)
   const [deleted, setDeleted] = useState(false)
   const [saved, setSaved] = useState(false)
-  const { user } = props
+  const { user, alert } = props
 
   useEffect(() => {
     axios(`${apiUrl}/jokes/${props.match.params.id}`)
-      .then(res => setJoke(res.data.joke))
+      .then(res => {
+        setJoke(res.data.joke)
+        setSaved()
+      })
       .catch(console.error)
-  }, [saved])
+  }, [])
 
   const destroy = () => {
     axios({
@@ -56,7 +60,19 @@ const Joke = props => {
       }
     })
       .then(() => setSaved(true))
-      .catch(console.error)
+      .then(() => alert({
+        heading: 'Successfully Saved a Joke as a Favorite!',
+        message: messages.jokeFaveSuccess,
+        variant: 'success'
+      }))
+      .catch(error => {
+        alert({
+          heading: 'Failed to Save the Joke to Your Favorites!',
+          message: messages.jokeFaveFailure,
+          variant: 'danger'
+        })
+        throw (error)
+      })
   }
 
   const unSaveFave = () => {

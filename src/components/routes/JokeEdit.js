@@ -48,7 +48,6 @@ const JokeEdit = props => {
         })
         throw (error)
       })
-      .catch(console.error)
   }
 
   if (updated) {
