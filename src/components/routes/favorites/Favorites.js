@@ -9,8 +9,19 @@ const Favorites = props => {
   const [favorites, setFavorites] = useState([])
 
   useEffect(() => {
-    axios(`${apiUrl}/favorites`)
-      .then(res => setFavorites(res.data.favorites))
+    axios({
+      url: `${apiUrl}/favorites`,
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${props.user.token}`
+      }
+    })
+      .then(res => {
+        console.log('res', res)
+        console.log('faves before setFaves', favorites)
+        setFavorites(res.data.favorites)
+        console.log('faves after setFaves', favorites)
+      })
       .catch(console.error)
   }, [])
 
