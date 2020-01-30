@@ -84,7 +84,14 @@ const Joke = props => {
       }
     })
       .then(() => setSaved(false))
-      .catch(console.error)
+      .catch(error => {
+        alert({
+          heading: 'Failed to Remove the Joke to Your Favorites!',
+          message: messages.jokeUnSaveFaveFailure,
+          variant: 'danger'
+        })
+        throw (error)
+      })
   }
 
   const authenticatedOptions = (

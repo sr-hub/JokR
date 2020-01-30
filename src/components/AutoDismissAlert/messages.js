@@ -11,5 +11,6 @@ export default {
   jokeEditSuccess: 'Successfully edited a joke. Way to be even funnier.',
   jokeEditFailure: 'Failed to edit your joke. Please make sure you\'re signed in and try again.',
   jokeFaveFailure: 'Something went wrong. The joke may not be available at the moment. Please try again.',
-  jokeFaveSuccess: 'You successfully saved this joke. Go to the favorites menu to check it out!'
+  jokeFaveSuccess: 'You successfully saved this joke. Go to the favorites menu to check it out!',
+  jokeUnSaveFaveFailure: 'Couldn\'t remove the joke from your favorites. Are you sure you saved it at all?'
 }
