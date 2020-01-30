@@ -8,7 +8,7 @@ import dadJokeApiUrl from '../../../dadJokeApiConfig'
 const DadJokePage = props => {
   const [joke, setJoke] = useState(null)
   // const [deleted, setDeleted] = useState(false)
-  // const { user } = props
+  const { alert } = props
 
   const getJoke = () => {
     axios({
@@ -19,10 +19,19 @@ const DadJokePage = props => {
       }
     })
       .then(res => {
-        console.log(res)
         setJoke(res.data.joke)
       })
-      .catch(console.error)
+      .then(() => alert({
+        heading: 'Successfully Retrieved a Joke!',
+        variant: 'success'
+      }))
+      .catch(error => {
+        alert({
+          heading: 'Couldn\'t Retrieve a Joke!',
+          variant: 'danger'
+        })
+        throw (error)
+      })
   }
   // const authenticatedOptions = (
   //   <Fragment>
