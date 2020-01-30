@@ -8,7 +8,7 @@ import Layout from '../../shared/Layout'
 const Favorite = props => {
   const [favorite, setFavorites] = useState(null)
   const [deleted, setDeleted] = useState(false)
-  const { user } = props
+  const { user, alert } = props
 
   useEffect(() => {
     axios(`${apiUrl}/favorites/${props.match.params.id}`)
@@ -24,9 +24,18 @@ const Favorite = props => {
         'Authorization': `Bearer ${props.user.token}`
       }
     })
-      .then(console.log(props))
       .then(() => setDeleted(true))
-      .catch(console.error)
+      .then(() => alert({
+        heading: 'Successfully Deleted your a Joke!',
+        variant: 'success'
+      }))
+      .catch(error => {
+        alert({
+          heading: 'Couldn\'t Delete your Joke!',
+          variant: 'danger'
+        })
+        throw (error)
+      })
   }
 
   if (!favorite) {

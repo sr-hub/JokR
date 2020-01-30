@@ -39,7 +39,7 @@ const FavoriteCreate = props => {
       }))
       .catch(error => {
         alert({
-          heading: 'Faled to Save Joke as a Favorite!',
+          heading: 'Failed to Save Joke as a Favorite!',
           message: messages.favoriteCreateFailure,
           variant: 'danger'
         })
