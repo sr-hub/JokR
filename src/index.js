@@ -4,8 +4,8 @@ import './css/index.scss'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import App from './components/App/App'
 import { HashRouter } from 'react-router-dom'
-import $ from 'jquery';
-import Popper from 'popper.js';
+// import $ from 'jquery';
+// import Popper from 'popper.js';
 
 const appJsx = (
   <HashRouter>
