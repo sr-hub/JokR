@@ -22,8 +22,6 @@ const Favorites = props => {
       .catch(console.error)
   }, [])
 
-  console.log(favorites)
-
   const favoriteArr = favorites.map(favorite => (
     <li key={favorite._id}>
       <Link to={`/jokes/${favorite.joke._id}`}>{favorite.joke.title}</Link>

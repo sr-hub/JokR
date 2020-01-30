@@ -11,7 +11,6 @@ const Jokes = props => {
   useEffect(() => {
     axios(`${apiUrl}/jokes`)
       .then(res => {
-        console.log('res', res)
         setJokes(res.data.jokes)
       })
       .catch(console.error)
