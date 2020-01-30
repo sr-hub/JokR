@@ -46,9 +46,15 @@ const Joke = props => {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${props.user.token}`
+      },
+      data: {
+        favorite: {
+          joke: joke._id,
+          listOwner: user._id,
+          isThirdParty: false
+        }
       }
     })
-      .then(console.log('save fave props', props))
       .then(() => setSaved(true))
       .catch(console.error)
   }
