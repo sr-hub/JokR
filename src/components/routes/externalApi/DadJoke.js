@@ -44,14 +44,14 @@ const DadJokePage = props => {
   // { user && user._id === joke.owner ? authenticatedOptions : '' }
   if (!joke) {
     return (
-      <Layout>
+      <Layout user={props.user}>
         <p> Click the Button to Get a Joke</p>
         <button onClick = {getJoke} className="btn btn-outline-primary" data-toggle="button" aria-pressed="false" autoComplete="off"> Get a new Joke! </button>
       </Layout>
     )
   } else {
     return (
-      <Layout>
+      <Layout user={props.user}>
         <h6 className="text-center border border-info border-top border-bottom align-middle"> {joke} </h6>
         <p style={{ fontSize: 5 }}> courtesy of: icanhazdadjoke.com </p>
         <button onClick = {getJoke} className="btn btn-outline-primary" data-toggle="button" aria-pressed="false" autoComplete="off"> Get a new Joke! < /button>

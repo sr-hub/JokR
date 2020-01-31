@@ -105,7 +105,7 @@ const Joke = props => {
   )
 
   return (
-    <Layout>
+    <Layout user={props.user}>
       <p className="text-left">title: {joke.title} </p>
       <p className="text-center border border-info border-top align-middle">{joke.text}</p>
       <p>written by: {joke.owner}</p>

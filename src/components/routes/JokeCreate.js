@@ -52,7 +52,7 @@ const JokeCreate = props => {
   }
 
   return (
-    <Layout>
+    <Layout user={props.user}>
       <JokeForm
         joke={joke}
         handleChange={handleChange}

@@ -52,7 +52,7 @@ const FavoriteCreate = props => {
   }
 
   return (
-    <Layout>
+    <Layout user={props.user}>
       <JokeForm
         favorite={favorite}
         handleChange={handleChange}

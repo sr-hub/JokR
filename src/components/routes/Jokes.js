@@ -23,7 +23,7 @@ const Jokes = props => {
   ))
 
   return (
-    <Layout>
+    <Layout user={props.user}>
       <h4>Jokes</h4>
       <ul className="list-group list-group-flush">
         {jokeArr}

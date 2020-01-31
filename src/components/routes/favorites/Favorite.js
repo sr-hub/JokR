@@ -58,7 +58,7 @@ const Favorite = props => {
   )
 
   return (
-    <Layout>
+    <Layout user={props.user}>
       <h4>{favorite.title}</h4>
       <p>{favorite.text}</p>
       <p>written by: {favorite.owner}</p>

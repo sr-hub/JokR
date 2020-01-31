@@ -29,7 +29,7 @@ const Favorites = props => {
   ))
 
   return (
-    <Layout>
+    <Layout user={props.user}>
       <h4>Favorites</h4>
       <ul className="list-group list-group-flush">
         {favoriteArr}
