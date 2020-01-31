@@ -23,7 +23,7 @@ const Favorites = props => {
   }, [])
 
   const favoriteArr = favorites.map(favorite => (
-    <li key={favorite._id}>
+    <li className="list-group-item" key={favorite._id}>
       <Link to={`/jokes/${favorite.joke._id}`}>{favorite.joke.title}</Link>
     </li>
   ))
@@ -31,7 +31,7 @@ const Favorites = props => {
   return (
     <Layout>
       <h4>Favorites</h4>
-      <ul>
+      <ul className="list-group list-group-flush">
         {favoriteArr}
       </ul>
     </Layout>

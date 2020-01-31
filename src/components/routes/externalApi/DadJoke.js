@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import axios from 'axios'
 
 import Layout from '../../shared/Layout'
@@ -46,16 +46,15 @@ const DadJokePage = props => {
     return (
       <Layout>
         <p> Click the Button to Get a Joke</p>
-        <button onClick = {getJoke}> Get a new Joke! </button>
+        <button onClick = {getJoke} className="btn btn-outline-primary" data-toggle="button" aria-pressed="false" autoComplete="off"> Get a new Joke! </button>
       </Layout>
     )
   } else {
     return (
       <Layout>
-        <h6> {joke} </h6>
-        <p> courtesy of: icanhazdadjoke.com </p>
-        <button onClick = {getJoke} > Get a new Joke! < /button>
-        <Link to = "/jokes" > Back to all Jokes < /Link>
+        <h6 className="text-center border border-info border-top border-bottom align-middle"> {joke} </h6>
+        <p style={{ fontSize: 5 }}> courtesy of: icanhazdadjoke.com </p>
+        <button onClick = {getJoke} className="btn btn-outline-primary" data-toggle="button" aria-pressed="false" autoComplete="off"> Get a new Joke! < /button>
       </Layout>
     )
   }

@@ -95,19 +95,19 @@ const Joke = props => {
 
   const authenticatedOptions = (
     <Fragment>
-      { !saved ? <button onClick={saveFave}>Save as Favorite </button>
-        : <button onClick={unSaveFave}>Remove from Favorites </button> }
+      { !saved ? <button onClick={saveFave} className="btn btn-outline-primary" data-toggle="button" aria-pressed="false" autoComplete="off">Save as Favorite </button>
+        : <button onClick={unSaveFave} className="btn btn-outline-warning" data-toggle="button" aria-pressed="false" autoComplete="off">Remove from Favorites </button> }
       <Link to={`/jokes/${props.match.params.id}/edit`}>
         <button>Edit</button>
       </Link>
-      <button onClick={destroy}>Delete Joke</button>
+      <button onClick={destroy} className="btn btn-outline-danger" data-toggle="button" aria-pressed="false" autoComplete="off">Delete Joke</button>
     </Fragment>
   )
 
   return (
     <Layout>
-      <h4>{joke.title}</h4>
-      <p>{joke.text}</p>
+      <p className="text-left">title: {joke.title} </p>
+      <p className="text-center border border-info border-top align-middle">{joke.text}</p>
       <p>written by: {joke.owner}</p>
       { user && user._id === joke.owner ? authenticatedOptions : '' }
       <Link to="/jokes">Back to all Jokes</Link>

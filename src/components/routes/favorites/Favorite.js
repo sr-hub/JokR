@@ -50,7 +50,7 @@ const Favorite = props => {
 
   const authenticatedOptions = (
     <Fragment>
-      <button onClick={destroy}>Delete Favorite</button>
+      <button onClick={destroy} className="btn btn-outline-danger" data-toggle="button" aria-pressed="false" autoComplete="off">Delete Favorite</button>
       <Link to={`/favorites/${props.match.params.id}/edit`}>
         <button>Edit</button>
       </Link>
