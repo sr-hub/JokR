@@ -6,10 +6,10 @@ const AuthNav = (
     <li className="nav-item">
       <a className="nav-link" href='#/create-joke'>Create Jokes</a>
     </li>
-    <li className="nav-item">
-      <a className="nav-link" href='#/favorites'>Saved Jokes</a>
-    </li>
   </Fragment>
+  // <li className="nav-item">
+  //   <a className="nav-link" href='#/favorites'>Saved Jokes</a>
+  // </li>
 )
 
 const Nav = (props) => (
