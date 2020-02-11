@@ -2,8 +2,8 @@
 
 This blog application allows users to read others' blog posts, author their own, and leave comments to further the discussion on their favorite posts.
 
-![JokR Splash Page](https://imgur.com/a/7TzKzIF)
-![Joke](https://imgur.com/a/a8xSyyl)
+![JokR Splash Page](https://imgur.com/a/7TzKzIF.jpg)
+![Joke](https://imgur.com/a/a8xSyyl.jpg)
 
 ## Important Links
 
@@ -28,9 +28,3 @@ This blog application allows users to read others' blog posts, author their own,
 ### Unsolved Problems
 
 - Styling
-
-## Images
-
-#### Wireframe:
-
-![wireframe](https://imgur.com/a/0QtmppG)
